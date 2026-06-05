@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitar Demo — EasyPageX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #FFE600;
+      --black: #111;
+      --red: #FF2D2D;
+      --blue: #1A4BFF;
+      --white: #fff;
+    }
+
+    body {
+      background: var(--yellow);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      overflow-x: hidden;
+    }
+
+    /* Decorative blobs */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 500px; height: 500px;
+      background: var(--red);
+      top: -120px; left: -120px;
+    }
+    body::after {
+      width: 400px; height: 400px;
+      background: var(--blue);
+      bottom: -100px; right: -100px;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 8px 8px 0 var(--red), 16px 16px 0 var(--blue);
+      animation: pop .5s cubic-bezier(.34,1.56,.64,1) both;
+    }
+
+    @keyframes pop {
+      from { transform: scale(.85) translateY(30px); opacity: 0; }
+      to   { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: .02em;
+      margin-bottom: .6rem;
+    }
+
+    h1 span { color: var(--yellow); }
+
+    .sub {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .sub a {
+      color: var(--yellow);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .sub a:hover { text-decoration: underline; }
+
+    label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: .4rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: #1e1e1e;
+      border: 2px solid #333;
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      padding: .75rem 1rem;
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 1.1rem;
+    }
+    input:focus, textarea:focus { border-color: var(--yellow); }
+    textarea { resize: vertical; min-height: 80px; }
+
+    .fields { display: flex; gap: 1rem; }
+    .fields > div { flex: 1; }
+
+    .cta {
+      display: block;
+      width: 100%;
+      margin-top: .5rem;
+      padding: 1rem;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: .08em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 4px 4px 0 var(--red);
+    }
+    .cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--red);
+    }
+    .cta:active { transform: translate(1px,1px); box-shadow: 2px 2px 0 var(--red); }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: .8rem;
+      color: #666;
+      text-align: center;
+    }
+    .footer-note a { color: var(--yellow); text-decoration: none; }
+    .footer-note a:hover { text-decoration: underline; }
+
+    /* Floating sticker */
+    .sticker {
+      position: absolute;
+      top: -22px;
+      right: 28px;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .06em;
+      padding: .35rem .9rem;
+      border-radius: 999px;
+      transform: rotate(4deg);
+      box-shadow: 3px 3px 0 #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="sticker">DEMO GRATIS 🚀</div>
+    <div class="badge">EasyPageX</div>
+    <h1>Pide tu Demo de <span>Landing Page</span></h1>
+    <p class="sub">
+      Descubre cómo una página a medida convierte visitas en clientes — rápido.<br>
+      <a href="https://easypagex.github.io/whye/" target="_blank">→ Descubre por qué funciona</a>
+    </p>
+
+    <div class="fields">
+      <div>
+        <label>Nombre</label>
+        <input type="text" placeholder="Ana García" id="name" />
+      </div>
+      <div>
+        <label>Negocio</label>
+        <input type="text" placeholder="Mi Tienda" id="biz" />
+      </div>
+    </div>
+
+    <label>¿Qué vendes u ofreces?</label>
+    <textarea placeholder="ej. joyería artesanal, coaching, cafetería local…" id="msg"></textarea>
+
+    <a class="cta" id="sendBtn" href="#" onclick="sendMail(event)">
+      ✉ SOLICITAR MI DEMO
+    </a>
+
+    <p class="footer-note">
+      Sin spam. Sin compromiso. Solo resultados.<br>
+      ¿Preguntas? <a href="mailto:paniaguai@gmail.com">paniaguai@gmail.com</a>
+    </p>
+  </div>
+
+  <script>
+    function sendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const biz  = document.getElementById('biz').value.trim();
+      const msg  = document.getElementById('msg').value.trim();
+
+      const subject = encodeURIComponent('Solicitud de Demo — EasyPageX');
+      const body = encodeURIComponent(
+        `¡Hola! Me gustaría una demo.\n\nNombre: ${name || '—'}\nNegocio: ${biz || '—'}\nQué ofrezco: ${msg || '—'}\n\n¡Gracias!`
+      );
+      window.location.href = `mailto:paniaguai@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>
